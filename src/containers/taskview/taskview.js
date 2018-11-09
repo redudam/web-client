@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { Button, FormGroup,  Input,  Alert, TabContent, TabPane, CardTitle, Row, Col, CardText, Card, Nav, NavItem, NavLink } from 'reactstrap';
 import './taskview.css';
 import productLogo from '../../logo.png';
+import { getTasks } from '../../api';
 import goToTask from './arrow_right.png';
 
 class Tasks extends React.Component {
@@ -43,6 +44,14 @@ export default class TaskView extends React.Component {
     };
   }
 
+  componentDidMount() {
+    getTasks().then((tasks) => {
+      this.setState({
+        tasks
+      });
+    });
+  }
+
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({
@@ -50,6 +59,7 @@ export default class TaskView extends React.Component {
       });
     }
   }
+
   render() {
     return (
       <div id="mainContainer">
