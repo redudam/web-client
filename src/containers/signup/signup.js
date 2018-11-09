@@ -42,7 +42,7 @@ export default class SignUpForm extends React.Component {
     return (
       <React.Fragment>
         <div id="navbar">
-          <img alt="productlogo" src={productLogo} />
+          <img alt="productlogo" id="productLogo" src={productLogo} />
         </div>
         <form id="signUpForm">
           <h1>Регистрация</h1>
@@ -67,7 +67,7 @@ export default class SignUpForm extends React.Component {
     return (
       <React.Fragment>
         <div id="navbar">
-          <img alt="productlogo" src={productLogo} />
+          <img alt="productlogo" id="productLogo" src={productLogo} />
         </div>
         <form id="signUpForm">
           <h1>Регистрация</h1>

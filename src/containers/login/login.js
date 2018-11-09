@@ -10,7 +10,8 @@ export default class LoginForm extends React.Component {
     return (
       <React.Fragment>
         <div id="navbar">
-          <img alt="productlogo" src={productLogo} />
+          <img alt="productlogo" id="productLogo" src={productLogo} />
+          
         </div>
         <form id="loginForm">
           <h1>Вход</h1>

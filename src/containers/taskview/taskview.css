@@ -1,0 +1,18 @@
+div#taskLabelContainer {
+  margin: 20px;
+}
+
+#mainNavBar {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div#navbar {
+  padding-left: 20px;
+  height: 64px;
+  background-color: #F79000;
+}
+
+img#productLogo {
+  height: 64px;
+}
