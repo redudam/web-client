@@ -1,11 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-
-import { Button, FormGroup,  Input,  Alert, TabContent, TabPane, CardTitle, Row, Col, CardText, Card, Nav, NavItem, NavLink } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import './taskview.css';
 import productLogo from '../../logo.png';
 import { getTasks } from '../../api';
 import goToTask from './arrow_right.png';
+import { Link } from 'react-router-dom';
 
 class Tasks extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class Tasks extends React.Component {
     return (
       <div {...this.props}>
         {this.props.tasks.map(task => <Task key={'_key' + task.id} className="task" task={task} />)}
-
       </div>
     );
   }
@@ -27,9 +26,11 @@ Tasks.defaultProps = {
 }
 
 const Task = props => <div {...props}>
-  <span className="taskName">{props.task.name}</span>
-  <span className="orgName">{props.task.ownerId}</span>
-  <img className="goToTask" alt="Перейти" src={goToTask} />
+  <Link to={`/task/${props.task.id}`}>
+    <span className="taskName">{props.task.name}</span>
+    <span className="orgName">{props.task.ownerId}</span>
+    <img className="goToTask" alt="Перейти" src={goToTask} />
+  </Link>
 </div>
 
 

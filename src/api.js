@@ -7,3 +7,9 @@ export const getTasks = () => {
         return response.data
     }); 
 }
+
+export const getTaskById = (id) => {
+    return axios.get(`${baseURL}/tasks/${id}`).then(response => {
+        return response.data;
+    });
+}
