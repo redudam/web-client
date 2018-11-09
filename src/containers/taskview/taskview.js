@@ -4,18 +4,34 @@ import classnames from 'classnames';
 import { Button, FormGroup,  Input,  Alert, TabContent, TabPane, CardTitle, Row, Col, CardText, Card, Nav, NavItem, NavLink } from 'reactstrap';
 import './taskview.css';
 import productLogo from '../../logo.png';
+import goToTask from './arrow_right.png';
 
 class Tasks extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    return null;
+    return (
+      <div {...this.props}>
+        <Task className="task" taskName="Покормить собаку" orgName="Приют ДРУГ" />
+        <Task className="task" taskName="Покормить собаку" orgName="Приют ДРУГ" />
+        <Task className="task" taskName="Покормить собаку" orgName="Приют ДРУГ" />
+      </div>
+    );
   }
 }
 
-class Task extends React.Component {
-  render() {
-    return null;
-  }
+Tasks.defaultProps = {
+  className: 'tasks'
 }
+
+const Task = props => <div {...props}>
+  <span className="taskName">{props.taskName}</span>
+  <span className="orgName">{props.orgName}</span>
+  <img className="goToTask" alt="Перейти" src={goToTask} />
+</div>
+
 
 export default class TaskView extends React.Component {
   constructor(props) {
@@ -71,16 +87,13 @@ export default class TaskView extends React.Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <Tasks>
-            </Tasks>
+            <Tasks />
           </TabPane>
           <TabPane tabId="2">
-            <Tasks>
-            </Tasks>
+            <Tasks />
           </TabPane>
           <TabPane tabId="3">
-            <Tasks>
-            </Tasks>
+            <Tasks />
           </TabPane>
         </TabContent>
       </div>

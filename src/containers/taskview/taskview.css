@@ -16,3 +16,36 @@ div#navbar {
 img#productLogo {
   height: 64px;
 }
+
+.task {
+  height: 48px;
+  margin-bottom: 10px;
+  position: relative;
+  border: 1px solid #DEE2E6;
+  border-radius: .25rem;
+}
+
+.tasks {
+  margin: 20px;
+}
+
+.taskName {
+  position: absolute;
+  top: -2px;
+  left: 4px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.orgName {
+  bottom: 2px;
+  left: 4px;
+  position: absolute;
+  font-size: 0.9em;
+}
+
+.goToTask {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+}
