@@ -4,7 +4,7 @@ import { Button, FormGroup, Input } from 'reactstrap';
 import './login.css';
 import vklogo from './vklogo.png';
 import { fakeAuth } from '../../auth';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import productLogo from '../../logo.png';
 
 export default class LoginForm extends React.Component {
@@ -42,7 +42,7 @@ export default class LoginForm extends React.Component {
           <Button type="button" color="success" onClick={() => this.login()} id="loginDirectly">Вход</Button>
           <Button type="button" id="loginVK">Вход через<img alt="vklogo" src={vklogo} id="smallImage" /></Button>
           <div id="signUpContainer">
-            <Button type="button" id="goToSignUp" color="link">Нет аккаунта?</Button>
+            <Link to='/signup'>Нет аккаунта?</Link>
           </div>
         </form>
         <div id="footer">redundantiam</div>

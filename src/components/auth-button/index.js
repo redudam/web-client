@@ -4,7 +4,7 @@ import { fakeAuth } from '../../auth';
 
 export const AuthButton = withRouter(
     ({ history }) =>
-      fakeAuth.isAuthenticated ? (
+      fakeAuth.isAuthenticated && (
         <p>
           Welcome!{" "}
           <button
@@ -15,7 +15,5 @@ export const AuthButton = withRouter(
             Sign out
           </button>
         </p>
-      ) : (
-        <p>You are not logged in.</p>
       )
   );
