@@ -26,6 +26,7 @@ export default class LoginForm extends React.Component {
             <Button type="button" id="goToSignUp" color="link">Нет аккаунта?</Button>
           </div>
         </form>
+        <div id="footer">redundantiam</div>
       </React.Fragment>
     );
   }

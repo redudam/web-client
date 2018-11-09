@@ -60,6 +60,7 @@ export default class SignUpForm extends React.Component {
             <Button type="button" id="goToLogin" color="link">Уже есть аккаунт?</Button>
           </div>
         </form>
+        <div id="footer">redundantiam</div>
       </React.Fragment>
     )
   } else {
@@ -83,6 +84,7 @@ export default class SignUpForm extends React.Component {
             <Button type="button" id="goToLogin" color="link">Уже есть аккаунт?</Button>
           </div>
         </form>
+        <div id="footer">redundantiam</div>
       </React.Fragment>
     );
   }
