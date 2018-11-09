@@ -15,9 +15,8 @@ class Tasks extends React.Component {
   render() {
     return (
       <div {...this.props}>
-        <Task className="task" taskName="Покормить собаку" orgName="Приют ДРУГ" />
-        <Task className="task" taskName="Покормить собаку" orgName="Приют ДРУГ" />
-        <Task className="task" taskName="Покормить собаку" orgName="Приют ДРУГ" />
+        {this.props.tasks.map(task => <Task key={'_key' + task.id} className="task" task={task} />)}
+
       </div>
     );
   }
@@ -28,8 +27,8 @@ Tasks.defaultProps = {
 }
 
 const Task = props => <div {...props}>
-  <span className="taskName">{props.taskName}</span>
-  <span className="orgName">{props.orgName}</span>
+  <span className="taskName">{props.task.name}</span>
+  <span className="orgName">{props.task.ownerId}</span>
   <img className="goToTask" alt="Перейти" src={goToTask} />
 </div>
 
@@ -40,7 +39,8 @@ export default class TaskView extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: '1'
+      activeTab: '1',
+      tasks: [],
     };
   }
 
@@ -97,13 +97,13 @@ export default class TaskView extends React.Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <Tasks />
+            <Tasks tasks={this.state.tasks.filter((task) => task.status === 'my')} />
           </TabPane>
           <TabPane tabId="2">
-            <Tasks />
+            <Tasks tasks={this.state.tasks.filter((task) => task.status === 'available')}/>
           </TabPane>
           <TabPane tabId="3">
-            <Tasks />
+            <Tasks tasks={this.state.tasks.filter((task) => task.status === 'completed')}/>
           </TabPane>
         </TabContent>
       </div>
