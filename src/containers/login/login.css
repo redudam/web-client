@@ -1,0 +1,23 @@
+body {
+}
+
+Form#loginForm {
+  margin: 20px;
+}
+
+img#smallImage {
+  width: 20px;
+  margin-left: 10px;
+  vertical-align: 0px;
+}
+
+Button#loginVK {
+  background-color: #5281B7;
+  margin-left: 5px;
+  width: calc(50% - 5px);
+}
+
+Button#loginDirectly {
+  margin-right: 5px;
+  width: calc(50% - 5px);
+}
