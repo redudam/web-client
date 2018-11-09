@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginForm from './containers/login/login';
+//import LoginForm from './containers/login/login';
+//import SignUpForm from './containers/signup/signup';
+import TaskView from './containers/taskview/taskview'
 
-ReactDOM.render(<LoginForm></LoginForm>, document.getElementById('root'));
+ReactDOM.render(<TaskView></TaskView>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

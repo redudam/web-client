@@ -1,7 +1,7 @@
 body {
 }
 
-Form#loginForm {
+Form#signUpForm {
   margin: 20px;
 }
 
@@ -11,18 +11,16 @@ img#smallImage {
   vertical-align: 0px;
 }
 
-Button#loginVK {
+Button#signUpVK {
   background-color: #5281B7;
-  margin-left: 5px;
-  width: calc(50% - 5px);
+  width: 100%;
 }
 
-Button#loginDirectly {
-  margin-right: 5px;
-  width: calc(50% - 5px);
+Button#signUpDirectly {
+  width: 100%;
 }
 
-div#signUpContainer {
+div#loginContainer {
   display: flex;
   justify-content: center;
   margin-top: 20px;
