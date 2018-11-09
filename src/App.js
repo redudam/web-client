@@ -13,8 +13,8 @@ const AppRouter = () => (
         <AuthButton />
         <Route path="/login" exact component={LoginForm} />
         <Route path='/signup' exact component={SignUpForm} />
+        <PrivateRoute path='/task/:id' exact component={TaskDetails}></PrivateRoute>
         <PrivateRoute path='/' exact component={TaskView}></PrivateRoute>
-        <Route path='/task' exact component={TaskDetails}></Route>
       </div>
   </Router>
 );
