@@ -14,6 +14,12 @@ export const getTaskById = (id) => {
     });
 }
 
+export const getOrganizations = () => {
+    return axios.get(`${baseURL}/v1/organizations`).then(response => {
+        return response.data;
+    });
+}
+
 export const getCurrentUser = () => {
     return Promise.resolve(() => {
 

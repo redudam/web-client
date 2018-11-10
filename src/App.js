@@ -6,6 +6,7 @@ import TaskView from "./containers/taskview/taskview";
 import TaskDetails from './containers/taskdetails/taskdetails';
 import Profile  from './containers/profile';
 import CreateTask from './containers/create-task';
+import Organizations from './containers/organizations';
 
 const AppRouter = () => (
   <Router>
@@ -15,6 +16,7 @@ const AppRouter = () => (
         <Route path='/task/:id' exact component={TaskDetails} />
         <Route path='/profile' exact component={Profile} />
         <Route path='/create-task' exact component={CreateTask} />
+        <Route path='/organizations' exact component={Organizations} />
         <Route path='/' exact component={TaskView} />
       </div>
   </Router>
