@@ -42,6 +42,11 @@ export class Header extends React.Component {
                         activeClassName='inThis'
                         to='/create-task'>Создать задачу</NavLink>
                     </li> }
+                    { this.Auth.isAdmin() && <li className="menuEntry">
+                        <NavLink className="menuEntryText"
+                        activeClassName='inThis'
+                        to='/organizations'>Организации</NavLink>
+                    </li> }
                     <li className="menuEntry">
                         <LogoutButton />
                     </li>
