@@ -6,6 +6,7 @@ import SignUpForm from './containers/signup/signup';
 import { AuthButton } from "./components/auth-button";
 import TaskView from "./containers/taskview/taskview";
 import TaskDetails from './containers/taskdetails/taskdetails';
+import { Profile } from './containers/profile';
 
 const AppRouter = () => (
   <Router>
@@ -15,6 +16,7 @@ const AppRouter = () => (
         <Route path='/signup' exact component={SignUpForm} />
         <PrivateRoute path='/' exact component={TaskView}></PrivateRoute>
         <PrivateRoute path='/task/:id' exact component={TaskDetails}></PrivateRoute>
+        <PrivateRoute path='/profile' exact component={Profile}></PrivateRoute>
       </div>
   </Router>
 );
