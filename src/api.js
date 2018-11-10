@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3004';
+const baseURL = 'http://95.213.28.116:3000';
 
 export const getTasks = () => {
-    return axios.get(`${baseURL}/tasks`).then((response) => {
+    return axios.get(`${baseURL}/v1/tasks`).then((response) => {
         return response.data
     }); 
 }
 
 export const getTaskById = (id) => {
-    return axios.get(`${baseURL}/tasks/${id}`).then(response => {
+    return axios.get(`${baseURL}/v1/tasks/${id}`).then(response => {
         return response.data;
     });
 }
@@ -21,10 +21,6 @@ export const getCurrentUser = () => {
 }
 
 export const login = () => {
-    
-}
-
-const makeAuthenticatedRequest = (endpoint, method = 'get', payload = {}) => {
     
 }
 

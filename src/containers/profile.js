@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from '../../components/header';
+import { Header } from '../components/header';
 
-import './profile.css';
+import './profile/profile.css';
 
 export default class Profile extends React.Component {
   constructor(props) {

@@ -4,7 +4,7 @@ import AuthService from '../AuthService';
 export default function withAuth(AuthComponent) {
     const Auth = new AuthService('http://95.213.28.116')
     return class AuthWrapped extends Component {
-        constructor(props) { // ? in the reference article there weren't props here
+        constructor(props) {
             super(props);
 
             this.state = {

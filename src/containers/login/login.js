@@ -3,8 +3,7 @@ import React from 'react';
 import { Button, FormGroup, Input } from 'reactstrap';
 import './login.css';
 import vklogo from './vklogo.png';
-import { fakeAuth } from '../../auth';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Header } from '../../components/header';
 
 import dogLeftEar from '../dog/leftEar.png';
