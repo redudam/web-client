@@ -15,7 +15,7 @@ class Tasks extends React.Component {
   render() {
     return (
       <div {...this.props}>
-        {this.props.tasks.map(task => <Task key={'_key' + task.id} className="task" task={task} />)}
+        {this.props.tasks.map(task => <Link key={'_key' + task.id} to={`/task/${task.id}`}><Task className="task" task={task} /></Link>)}
       </div>
     );
   }
@@ -26,11 +26,9 @@ Tasks.defaultProps = {
 }
 
 const Task = props => <div {...props}>
-  <Link to={`/task/${props.task.id}`}>
-    <span className="taskName">{props.task.name}</span>
-    <span className="orgName">{props.task.ownerId}</span>
-    <img className="goToTask" alt="Перейти" src={goToTask} />
-  </Link>
+  <span className="taskName">{props.task.name}</span>
+  <span className="orgName">{props.task.ownerId}</span>
+  <img className="goToTask" alt="Перейти" src={goToTask} />
 </div>
 
 

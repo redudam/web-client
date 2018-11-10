@@ -6,6 +6,7 @@ import SignUpForm from './containers/signup/signup';
 import { AuthButton } from "./components/auth-button";
 import TaskView from "./containers/taskview/taskview";
 import TaskDetails from './containers/taskdetails/taskdetails';
+import CreateTaskForm from './containers/createtask/createtask';
 
 const AppRouter = () => (
   <Router>
@@ -14,6 +15,7 @@ const AppRouter = () => (
         <Route path="/login" exact component={LoginForm} />
         <Route path='/signup' exact component={SignUpForm} />
         <PrivateRoute path='/task/:id' exact component={TaskDetails}></PrivateRoute>
+        <PrivateRoute path='/createtask' exact component={CreateTaskForm}></PrivateRoute>
         <PrivateRoute path='/' exact component={TaskView}></PrivateRoute>
       </div>
   </Router>

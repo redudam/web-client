@@ -7,19 +7,24 @@ import { fakeAuth } from '../../auth';
 import { Redirect, Link } from 'react-router-dom';
 import productLogo from '../../logo.png';
 
+import SideMenu from '../../components/sidemenu';
+
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {redirectToReferrer: false};
     this.login = this.login.bind(this);
+
   }
-  
+
   login() {
     fakeAuth.authenticate(() => {
       this.setState({ redirectToReferrer: true });
     });
   }
-  
+
+
+
   render() {
     let { from } = this.props.location.state || { from: { pathname: "/" } };
     let { redirectToReferrer } = this.state;
@@ -28,10 +33,12 @@ export default class LoginForm extends React.Component {
 
     return (
       <React.Fragment>
+
         <div id="navbar">
-          <img alt="productlogo" id="productLogo" src={productLogo} />
-          
+          <img alt="productlogo" id="productLogo" onClick={this.openBurger} src={productLogo} />
+
         </div>
+        <SideMenu source={productLogo}></SideMenu>
         <form id="loginForm">
           <h1>Вход</h1>
           <FormGroup>
