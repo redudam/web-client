@@ -31,7 +31,6 @@ export default class TaskDetails extends React.Component {
       <div id="mainContainer">
         <Header></Header>
         <div id="imgContainer">
-          <img src={more} alt="Меню" id="more" />
           <img src={tempPic} alt="Задача" id="taskImage" />
           <div id="titleInfo">
             <span id="taskName">{this.state.task.name}</span><br />

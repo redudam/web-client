@@ -1,8 +1,109 @@
-#navbar {
+div#navbar {
     height: 50px;
-    background-color: #F79000;
+    background: linear-gradient(to right, #28A745, #5281B7);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 99;
   }
-  
+
+  .inThis {
+    font-size: 1.2em;
+    color: #3F7289 !important;
+  }
+
+  body {
+    padding-top: 50px;
+  }
+
 #productLogo {
     height: 50px;
+  }
+
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+  }
+
+  /* Color/shape of burger icon bars */
+.bm-burger-bars {
+    background: #373a47;
+  }
+
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: #373a47;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .menuEntry {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .menuEntryText {
+    color: black;
+    font-weight: bold;
+  }
+
+  #userInfo {
+    padding: 20px;
+    padding-left: 40px;
+    padding-top: 20px;
+    position: relative;
+    margin-top: 20px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+  }
+
+  #userAvatar {
+    width: 30%;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+
+  #userName {
+    font-weight: bold;
+    margin-left: calc(40% - 5px);
+    height: 20px;
   }

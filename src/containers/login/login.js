@@ -35,6 +35,7 @@ export default class LoginForm extends React.Component {
     document.getElementById('leftEar').style.height = '67px';
     document.getElementById('rightEar').style.height = '67px';
     let closedEyes = false;
+    let spec = true;
   }
 
   emailChanged(event) {

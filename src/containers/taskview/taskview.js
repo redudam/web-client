@@ -59,7 +59,7 @@ export default class TaskView extends React.Component {
   render() {
     return (
       <div id="mainContainer">
-        <Header></Header>
+        <Header inTasks></Header>
         <div id="taskLabelContainer">
           <h1>Задачи</h1>
         </div>

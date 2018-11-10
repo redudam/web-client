@@ -1,6 +1,10 @@
 body {
 }
 
+#emailInput,#passwordInput,#passwordConfirm {
+  font-family: 'oneWidthFont';
+}
+
 Form#signUpForm {
   margin: 20px;
 }
@@ -26,13 +30,18 @@ div#loginContainer {
   margin-top: 20px;
 }
 
-div#navbar {
-  background-color: #F79000;
-}
 
 div#footer {
   position: absolute;
   bottom: 0px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+  color: gray;
+}
+
+div#footer2 {
   display: block;
   text-align: center;
   width: 100%;

@@ -5,7 +5,7 @@ import  './logout-button.css';
 
 export const LogoutButton = withRouter(
     ({ history }) =>
-          <button id="logout"
+          <button style={{color: 'black', fontWeight: 'bold'}} id="logout"
             onClick={() => {
               fakeAuth.signout(() => history.push("/login"));
             }}
