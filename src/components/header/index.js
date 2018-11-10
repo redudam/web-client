@@ -2,14 +2,20 @@ import React from 'react';
 import productLogo from './logo.png';
 import { LogoutButton } from '../logout-button';
 import { Link } from 'react-router-dom';
-import { fakeAuth } from '../../auth';
 import SideMenu from '../sidemenu';
 import './header.css';
+import AuthService from '../../AuthService';
+
 
 export class Header extends React.Component {
+    constructor() {
+        super();
+        this.Auth = new AuthService();
+    }
+
     render() {
         return <div id="navbar">
-            {fakeAuth.isAuthenticated && <SideMenu>
+            {this.Auth.isLoggedIn() && <SideMenu>
                 <ul>
                     <li>
                         <Link to='/profile'>Профиль</Link>

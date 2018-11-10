@@ -10,8 +10,9 @@ import tel from './tel.png';
 import home from './home.png';
 import time from './time.png';
 import more from './more.png';
+import withAuth from '../withAuth';
 
-export default class TaskDetails extends React.Component {
+class TaskDetails extends React.Component {
   constructor(props) {
     super(props);
 
@@ -70,3 +71,5 @@ export default class TaskDetails extends React.Component {
     );
   }
 }
+
+export default withAuth(TaskDetails);

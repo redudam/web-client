@@ -6,6 +6,7 @@ import { getTasks } from '../../api';
 import goToTask from './arrow_right.png';
 import { Link } from 'react-router-dom';
 import { Header } from '../../components/header';
+import withAuth from '../withAuth';
 
 class Tasks extends React.Component {
 
@@ -29,7 +30,7 @@ const Task = props => <div {...props}>
 </div>
 
 
-export default class TaskView extends React.Component {
+class TaskView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -104,3 +105,5 @@ export default class TaskView extends React.Component {
     );
   }
 }
+
+export default withAuth(TaskView);

@@ -5,6 +5,10 @@ Form#signUpForm {
   margin: 20px;
 }
 
+.alert-danger {
+  margin-top: 15px;
+}
+
 img#smallImage {
   width: 20px;
   margin-left: 10px;
