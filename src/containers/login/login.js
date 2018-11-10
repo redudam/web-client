@@ -5,7 +5,7 @@ import './login.css';
 import vklogo from './vklogo.png';
 import { fakeAuth } from '../../auth';
 import { Redirect, Link } from 'react-router-dom';
-import productLogo from '../../logo.png';
+import { Header } from '../../components/header';
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -28,10 +28,7 @@ export default class LoginForm extends React.Component {
 
     return (
       <React.Fragment>
-        <div id="navbar">
-          <img alt="productlogo" id="productLogo" src={productLogo} />
-          
-        </div>
+        <Header></Header>
         <form id="loginForm">
           <h1>Вход</h1>
           <FormGroup>

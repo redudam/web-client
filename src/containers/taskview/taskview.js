@@ -2,10 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import './taskview.css';
-import productLogo from '../../logo.png';
 import { getTasks } from '../../api';
 import goToTask from './arrow_right.png';
 import { Link } from 'react-router-dom';
+import { Header } from '../../components/header';
 
 class Tasks extends React.Component {
   constructor(props) {
@@ -64,9 +64,7 @@ export default class TaskView extends React.Component {
   render() {
     return (
       <div id="mainContainer">
-        <div id="navbar">
-          <img alt="productlogo" id="productLogo" src={productLogo} />
-        </div>
+        <Header></Header>
         <div id="taskLabelContainer">
           <h1>Задачи</h1>
         </div>

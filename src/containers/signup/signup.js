@@ -3,8 +3,8 @@ import React from 'react';
 import { Button, FormGroup,  Input,  Alert } from 'reactstrap';
 import './signup.css';
 import vklogo from './vklogo.png';
-import productLogo from '../../logo.png';
 import { Link } from 'react-router-dom';
+import { Header } from '../../components/header';
 
 export default class SignUpForm extends React.Component {
   constructor(props) {
@@ -40,9 +40,7 @@ export default class SignUpForm extends React.Component {
   render() {
     return (
       <div>
-        <div id="navbar">
-          <img alt="productlogo" id="productLogo" src={productLogo} />
-        </div>
+        <Header></Header>
         <form id="signUpForm">
           <h1>Регистрация</h1>
           <FormGroup>

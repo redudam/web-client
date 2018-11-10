@@ -7,16 +7,6 @@ div#taskLabelContainer {
   padding-right: 10px;
 }
 
-div#navbar {
-  padding-left: 20px;
-  height: 64px;
-  background-color: #F79000;
-}
-
-img#productLogo {
-  height: 64px;
-}
-
 .task {
   height: 48px;
   margin-bottom: 10px;
