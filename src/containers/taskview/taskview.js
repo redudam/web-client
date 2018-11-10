@@ -24,7 +24,7 @@ Tasks.defaultProps = {
 }
 
 const Task = props => <div {...props}>
-  <span className="taskName">{props.task.name}</span>
+  <span className="taskName">{props.task.title}</span>
   <span className="orgName">{props.task.ownerId}</span>
   <img className="goToTask" alt="Перейти" src={goToTask} />
 </div>
