@@ -1,24 +1,27 @@
 import React from 'react';
+import './sidemenu.css';
 import burgerIcon from './menu.png';
 
 const sideMenuStyle = {
   transition: '1s',
   position: 'fixed',
-  top: 64,
+  top: 50,
   left: 0,
   width: 0,
-  height: 'calc(100% - 64px)',
+  height: 'calc(100% - 50px)',
   backgroundColor: 'aqua',
   zIndex: 99,
+  overflow: 'hidden'
 };
 
 const toggleBtn = {
   position: 'absolute',
   zIndex: 99,
-  top: 0,
-  left: 0,
-  width: 64,
-  height: 64,
+  top: 10,
+  left: 10,
+  width: 30,
+  height: 30,
+  cursor: 'pointer'
 };
 
 export default class SideMenu extends React.Component {
@@ -48,7 +51,7 @@ export default class SideMenu extends React.Component {
   render() {
     return (
       <>
-      <img src={burgerIcon} style={toggleBtn} onClick={this.toggleMenu} />
+      <img alt='burger' src={burgerIcon} style={toggleBtn} onClick={this.toggleMenu} />
       <div id="sideMenu" style={sideMenuStyle}>
         {this.props.children}
       </div>

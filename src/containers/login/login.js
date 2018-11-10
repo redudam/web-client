@@ -7,8 +7,6 @@ import { fakeAuth } from '../../auth';
 import { Redirect, Link } from 'react-router-dom';
 import { Header } from '../../components/header';
 
-import SideMenu from '../../components/sidemenu';
-
 import dogLeftEar from '../dog/leftEar.png';
 import dogRightEar from '../dog/rightEar.png';
 import dogHead from '../dog/head.png';
