@@ -1,7 +1,7 @@
 export default class AuthService {
     // Initializing important variables
     constructor(domain) {
-        this.domain = domain || 'http://127.0.0.1:3000' // API server domain
+        this.domain = domain || 'http://localhost:3000' // API server domain
         this.fetchWithHeaders = this.fetchWithHeaders.bind(this) // React binding stuff
         this.login = this.login.bind(this)
         this.getUser = this.getUser.bind(this)
