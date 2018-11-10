@@ -1,11 +1,11 @@
-div#navbar {
+#navbar {
     padding-left: 20px;
-    height: 64px;
+    height: 50px;
     background-color: #F79000;
   }
   
-  img#productLogo {
-    height: 64px;
+#productLogo {
+    height: 50px;
   }
 
   .bm-burger-button {

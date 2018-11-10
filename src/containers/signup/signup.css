@@ -28,7 +28,6 @@ div#loginContainer {
 
 div#navbar {
   padding-left: 20px;
-  height: 64px;
   background-color: #F79000;
 }
 
@@ -40,8 +39,4 @@ div#footer {
   width: 100%;
   padding-bottom: 20px;
   color: gray;
-}
-
-img#productLogo {
-  height: 64px;
 }

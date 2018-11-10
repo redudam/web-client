@@ -1,14 +1,16 @@
 import React from 'react';
+import './sidemenu.css';
 
 const sideMenuStyle = {
   transition: '1s',
   position: 'fixed',
-  top: 64,
+  top: 50,
   left: 0,
   width: 0,
-  height: 'calc(100% - 64px)',
+  height: 'calc(100% - 50px)',
   backgroundColor: 'aqua',
   zIndex: 99,
+  overflow: 'hidden'
 };
 
 const toggleBtn = {
@@ -16,8 +18,8 @@ const toggleBtn = {
   zIndex: 99,
   top: 0,
   left: 0,
-  width: 64,
-  height: 64,
+  width: 50,
+  height: 50,
 };
 
 export default class SideMenu extends React.Component {
