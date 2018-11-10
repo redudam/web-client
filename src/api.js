@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const baseURL = 'http://95.213.28.116:3000';
-const baseURL = 'http://localhost:3000';
+const baseURL = 'http://127.0.0.1:3000';
 
 export const getTasks = () => {
     return axios.get(`${baseURL}/v1/tasks`).then((response) => {
