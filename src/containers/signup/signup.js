@@ -93,8 +93,8 @@ export default class SignUpForm extends React.Component {
   }
 
   handleEmailChange(e) {
-    if (Math.abs(30 - event.target.value.length * 2) < 30)
-      document.getElementById('headContainer').style.transform = 'rotate(' + (30 - event.target.value.length * 2) + 'deg)';
+    if (Math.abs(30 - e.target.value.length * 2) < 30)
+      document.getElementById('headContainer').style.transform = 'rotate(' + (30 - e.target.value.length * 2) + 'deg)';
     this.setState({
       email: e.target.value
     });
@@ -110,6 +110,7 @@ export default class SignUpForm extends React.Component {
           registrationError: true
         });
       });
+    }
 
   render() {
     return (

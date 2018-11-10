@@ -40,10 +40,8 @@ export default function withAuth(AuthComponent) {
                 )
             }
             else {
-                this.props.history.replace('./login');
                 return null;
             }
         }
     }
 }
-
