@@ -9,6 +9,12 @@ import { Header } from '../../components/header';
 
 import SideMenu from '../../components/sidemenu';
 
+import dogLeftEar from './dog/leftEar.png';
+import dogRightEar from './dog/rightEar.png';
+import dogHead from './dog/head.png';
+import dogBody from './dog/body.png';
+import './dog/dog.css';
+
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +40,12 @@ export default class LoginForm extends React.Component {
     return (
       <React.Fragment>
         <Header></Header>
+        <div id="dogContainer">
+          <img id="leftEar" src={dogLeftEar} alt="res" />
+          <img id="rightEar" src={dogRightEar} alt="res" />
+          <img id="head" src={dogHead} alt="res" />
+          <img id="body" src={dogBody} alt="res" />
+        </div>
         <form id="loginForm">
           <h1>Вход</h1>
           <FormGroup>

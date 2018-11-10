@@ -1,4 +1,5 @@
 import React from 'react';
+import burgerIcon from './menu.png';
 
 const sideMenuStyle = {
   transition: '1s',
@@ -12,7 +13,7 @@ const sideMenuStyle = {
 };
 
 const toggleBtn = {
-  position: 'fixed',
+  position: 'absolute',
   zIndex: 99,
   top: 0,
   left: 0,
@@ -47,7 +48,7 @@ export default class SideMenu extends React.Component {
   render() {
     return (
       <>
-      <img src={this.props.source} style={toggleBtn} onClick={this.toggleMenu} />
+      <img src={burgerIcon} style={toggleBtn} onClick={this.toggleMenu} />
       <div id="sideMenu" style={sideMenuStyle}>
         {this.props.children}
       </div>
