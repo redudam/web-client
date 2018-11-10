@@ -5,6 +5,7 @@ import './signup.css';
 import vklogo from './vklogo.png';
 import { Link } from 'react-router-dom';
 import { Header } from '../../components/header';
+import AuthService from '../../AuthService';
 
 import dogLeftEar from '../dog/leftEar.png';
 import dogRightEar from '../dog/rightEar.png';
@@ -19,17 +20,28 @@ export default class SignUpForm extends React.Component {
       passInputValue: '',
       passConfirmValue: '',
       correctPasswords: true,
+      email: '',
+      registrationError: false
     };
+    this.Auth = new AuthService();
 
     this.onChangePassInput = this.onChangePassInput.bind(this);
     this.onChangePassConfirm = this.onChangePassConfirm.bind(this);
     this.setEyesClosed = this.setEyesClosed.bind(this);
     this.setEyesOpened = this.setEyesOpened.bind(this);
     this.toInitial = this.toInitial.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.registerUser = this.registerUser.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
   }
 
   checkCompareError(inputValue, confirmValue) {
     return (inputValue === confirmValue);
+  }
+
+  onDismiss() {
+    console.log('onDismiss');
+    this.setState({ registrationError: false });
   }
 
   onChangePassInput(event) {
@@ -46,10 +58,6 @@ export default class SignUpForm extends React.Component {
     });
   }
 
-  emailChanged(event) {
-    if (Math.abs(30 - event.target.value.length * 2) < 30)
-      document.getElementById('headContainer').style.transform = 'rotate(' + (30 - event.target.value.length * 2) + 'deg)';
-  }
 
   componentDidMount() {
     document.getElementById('leftEar').style.height = '67px';
@@ -84,6 +92,25 @@ export default class SignUpForm extends React.Component {
     document.getElementById('headContainer').style.transform = 'rotate(0deg)';
   }
 
+  handleEmailChange(e) {
+    if (Math.abs(30 - event.target.value.length * 2) < 30)
+      document.getElementById('headContainer').style.transform = 'rotate(' + (30 - event.target.value.length * 2) + 'deg)';
+    this.setState({
+      email: e.target.value
+    });
+  }
+
+  registerUser() {
+    this.Auth.registerUser(this.state.email, this.state.passInputValue)
+      .then(() => {
+        this.props.history.push('/');
+      })
+      .catch(err => {
+        this.setState({
+          registrationError: true
+        });
+      });
+
   render() {
     return (
       <div>
@@ -99,23 +126,35 @@ export default class SignUpForm extends React.Component {
         <form id="signUpForm">
           <h1>Регистрация</h1>
           <FormGroup>
-            <Input type="email" name="email" onFocus={this.setEyesOpened} onChange={this.emailChanged} id="emailInput" placeholder="E-mail" />
+
+
+            <Input type="email"
+             name="email"
+             onChange={this.handleEmailChange}
+             value={this.state.email}
+              id="emailInput" placeholder="E-mail"
+              onFocus={this.setEyesOpened} />
           </FormGroup>
           <FormGroup>
-            <Input type="password" name="passwordInput" id="passwordInput" onFocus={this.setEyesClosed} onChange={this.onChangePassInput} value={this.state.passInputValue} placeholder="Пароль" style = {{marginBottom: '1rem'}}/>
-            <Input type="password" name="passwordConfirm" id="passwordConfirm" onFocus={this.setEyesClosed} onChange={this.onChangePassConfirm} value={this.state.passConfirmValue} placeholder="Повторите пароль" style = {{marginBottom: '1rem'}}/>
+            <Input type="password" name="passwordInput"
+            id="passwordInput" onFocus={this.setEyesClosed}
+            onChange={this.onChangePassInput} value={this.state.passInputValue} placeholder="Пароль" style = {{marginBottom: '1rem'}}/>
+            <Input type="password" onFocus={this.setEyesClosed} name="passwordConfirm" id="passwordConfirm" onChange={this.onChangePassConfirm} value={this.state.passConfirmValue} placeholder="Повторите пароль" style = {{marginBottom: '1rem'}}/>
           </FormGroup>
           { this.state.correctPasswords
           ? <div>
             <Button type="button" color="success"
               id="signUpDirectly"
-              style = {{marginBottom: '1rem'}}>Регистрация</Button>
+              style = {{marginBottom: '1rem'}} onClick={this.registerUser}>Регистрация</Button>
             <Button type="button"
                id="signUpVK">Регистрация через<img alt="vklogo" src={vklogo} id="smallImage" /></Button>
                </div>
           : <Alert color="danger">
           Пароли не совпадают!
         </Alert> }
+        <Alert color="danger"
+           isOpen={this.state.registrationError}
+            toggle={this.onDismiss}>Ошибка регистрации.</Alert>
           <div id="loginContainer">
             <div id="goToLogin">
               <Link to='/login'>Уже есть аккаунт?</Link>

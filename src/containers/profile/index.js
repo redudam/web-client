@@ -2,9 +2,11 @@ import React from 'react';
 import { Header } from '../../components/header';
 
 import './profile.css';
+import withAuth from '../withAuth';
+
 import userAvatar from '../../logo.png';
 
-export default class Profile extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,3 +23,4 @@ export default class Profile extends React.Component {
     );
   }
 }
+export default withAuth(Profile);

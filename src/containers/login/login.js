@@ -12,35 +12,68 @@ import dogRightEar from '../dog/rightEar.png';
 import dogHead from '../dog/head.png';
 import dogBody from '../dog/body.png';
 import '../dog/dog.css';
+import AuthService from '../../AuthService';
+import { Alert } from 'reactstrap'; 
 
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {redirectToReferrer: false};
     this.login = this.login.bind(this);
 
-    this.emailChanged = this.emailChanged.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.setEyesClosed = this.setEyesClosed.bind(this);
     this.setEyesOpened = this.setEyesOpened.bind(this);
     this.toInitial = this.toInitial.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
+    this.Auth = new AuthService();
+    this.state = {
+      email: '',
+      password: '',
+      loginError: false
+    };
   }
 
   login() {
-    fakeAuth.authenticate(() => {
-      this.setState({ redirectToReferrer: true });
+    this.Auth.login(this.state.email, this.state.password)
+      .then(() => {
+        console.log(123);
+        this.props.history.push('/');
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          loginError: true
+        });
     });
   }
 
   componentDidMount() {
+    console.log('login did mount');
     document.getElementById('leftEar').style.height = '67px';
     document.getElementById('rightEar').style.height = '67px';
     let closedEyes = false;
     let spec = true;
   }
 
-  emailChanged(event) {
-    if (Math.abs(30 - event.target.value.length * 2) < 30)
+  componentWillUnmount() {
+    console.log('will unmount');
+  }
+
+
+  handleEmailChange(event) {
+    if (Math.abs(30 - event.target.value.length * 2) < 30) {
       document.getElementById('headContainer').style.transform = 'rotate(' + (30 - event.target.value.length * 2) + 'deg)';
+    }
+      this.setState({
+        email: event.target.value
+      });
+  }
+
+  handlePasswordChange(event) {
+    this.setState({
+      password: event.target.value
+    })
   }
 
   setEyesOpened(event) {
@@ -62,6 +95,11 @@ export default class LoginForm extends React.Component {
     this.closedEyes = true;
   }
 
+  onDismiss() {
+    console.log('onDismiss');
+    this.setState({ loginError: false });
+  }
+
   toInitial() {
     document.getElementById('leftEar').style.transform = "rotate(0deg)";
     document.getElementById('rightEar').style.transform = "rotate(0deg)";
@@ -72,10 +110,6 @@ export default class LoginForm extends React.Component {
 
   render() {
     let { from } = this.props.location.state || { from: { pathname: "/" } };
-    let { redirectToReferrer } = this.state;
-
-    if (redirectToReferrer) return <Redirect to={from} />;
-
     return (
       <React.Fragment>
         <Header></Header>
@@ -90,11 +124,25 @@ export default class LoginForm extends React.Component {
         <form id="loginForm">
           <h1>Вход</h1>
           <FormGroup>
-            <Input type="email" name="email" onChange={this.emailChanged} onFocus={this.setEyesOpened} id="emailInput" placeholder="E-mail" />
+            <Input type="email" name="email" 
+            onChange={this.handleEmailChange} 
+            onFocus={this.setEyesOpened}
+             id="emailInput"
+             value={this.state.email}
+              placeholder="E-mail" />
           </FormGroup>
           <FormGroup>
-            <Input type="password" name="password" id="passwordInput" onFocus={this.setEyesClosed} placeholder="Пароль" />
+            <Input type="password"
+             name="password"
+              onChange={this.handlePasswordChange}
+               id="passwordInput"
+                onFocus={this.setEyesClosed}
+                value={this.state.password}
+                 placeholder="Пароль" />
           </FormGroup>
+          <Alert color="danger"
+           isOpen={this.state.loginError}
+            toggle={this.onDismiss}>Некорректный логин или пароль.</Alert>
           <Button type="button" color="success" onClick={() => this.login()} id="loginDirectly">Вход</Button>
           <Button type="button" id="loginVK">Вход через<img alt="vklogo" src={vklogo} id="smallImage" /></Button>
           <div id="signUpContainer">

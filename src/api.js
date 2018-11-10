@@ -25,10 +25,7 @@ export const login = () => {
 }
 
 const makeAuthenticatedRequest = (endpoint, method = 'get', payload = {}) => {
-    const accessToken = localStorage.getItem('access-token');
-    return makeHttpRequest(endpoint, method, payload, {
-        Authorization: `Bearer ${accessToken}`
-    });
+    
 }
 
 const makeAnonimousRequest = (endpoint, method = 'get', payload = {}) => {

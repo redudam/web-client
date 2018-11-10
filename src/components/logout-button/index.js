@@ -1,13 +1,17 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { fakeAuth } from '../../auth';
+import AuthService from '../../AuthService';
 import  './logout-button.css';
+
+const Auth = new AuthService();
 
 export const LogoutButton = withRouter(
     ({ history }) =>
           <button style={{color: 'black', fontWeight: 'bold'}} id="logout"
             onClick={() => {
-              fakeAuth.signout(() => history.push("/login"));
+              Auth.logout();
+              console.log('logging out from logout component');
+              history.replace("/login");
             }}
           >
             Выход
