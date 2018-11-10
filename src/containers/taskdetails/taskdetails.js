@@ -3,9 +3,8 @@ import classnames from 'classnames';
 
 import { Button, FormGroup,  Input,  Alert, TabContent, TabPane, CardTitle, Row, Col, CardText, Card, Nav, NavItem, NavLink, Progress } from 'reactstrap';
 import './taskdetails.css';
-import productLogo from '../../logo.png';
 import { getTaskById } from '../../api';
-
+import {Header} from '../../components/header';
 import tempPic from './template.png';
 import ownerLogo from './templogo.png';
 import share from './share.png';
@@ -32,6 +31,7 @@ export default class TaskDetails extends React.Component {
   render() {
     return (
       <div id="mainContainer">
+        <Header></Header>
         <div id="imgContainer">
           <img src={more} alt="Меню" id="more" />
           <img src={tempPic} alt="Задача" id="taskImage" />
