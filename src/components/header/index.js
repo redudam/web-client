@@ -8,7 +8,7 @@ import './header.css';
 
 export class Header extends React.Component {
     render() {
-        return <div id="navbar">
+        return <div id="navbar" style={{paddingLeft: '0 !important'}}>
             {fakeAuth.isAuthenticated && <SideMenu>
                 <ul>
                     <li>
@@ -19,7 +19,7 @@ export class Header extends React.Component {
                     </li>
                 </ul>
             </SideMenu>}
-            <img alt="productlogo" id="productLogo" src={productLogo} />
+            <center><img alt="productlogo" id="productLogo" src={productLogo} /></center>
         </div>;
     }
 }
