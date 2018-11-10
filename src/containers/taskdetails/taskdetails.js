@@ -1,7 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
-
-import { Button, FormGroup,  Input,  Alert, TabContent, TabPane, CardTitle, Row, Col, CardText, Card, Nav, NavItem, NavLink, Progress } from 'reactstrap';
+import { Button, Progress } from 'reactstrap';
 import './taskdetails.css';
 import { getTaskById } from '../../api';
 import {Header} from '../../components/header';
@@ -64,7 +62,7 @@ export default class TaskDetails extends React.Component {
             </div>
           </div>
 
-          <iframe style={{width: '100%', border: '1px solid #DEE2E6', borderRadius: '.25rem'}} src="https://yandex.ru/map-widget/v1/-/CBFAZSr00D" height="250"></iframe>
+          <iframe title='map' style={{width: '100%', border: '1px solid #DEE2E6', borderRadius: '.25rem'}} src="https://yandex.ru/map-widget/v1/-/CBFAZSr00D" height="250"></iframe>
 
 
         </div>

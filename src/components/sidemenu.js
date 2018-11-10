@@ -21,6 +21,7 @@ const toggleBtn = {
   left: 10,
   width: 30,
   height: 30,
+  cursor: 'pointer'
 };
 
 export default class SideMenu extends React.Component {
@@ -50,7 +51,7 @@ export default class SideMenu extends React.Component {
   render() {
     return (
       <>
-      <img src={burgerIcon} style={toggleBtn} onClick={this.toggleMenu} />
+      <img alt='burger' src={burgerIcon} style={toggleBtn} onClick={this.toggleMenu} />
       <div id="sideMenu" style={sideMenuStyle}>
         {this.props.children}
       </div>
