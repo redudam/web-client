@@ -6,6 +6,8 @@ import './taskdetails.css';
 import productLogo from '../../logo.png';
 import { getTaskById } from '../../api';
 
+import tempPic from './template.png';
+
 export default class TaskDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,14 @@ export default class TaskDetails extends React.Component {
   }
   
   render() {
-    return null;
+    return (
+      <div id="imgContainer">
+        <img src={tempPic} alt="Задача" id="taskImage" />
+        <div id="titleInfo">
+          <span id="taskName">Котята, щенята, уточка</span><br />
+          <span id="orgName">Приют ДРУГ</span>
+        </div>
+      </div>
+    );
   }
 }

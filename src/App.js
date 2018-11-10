@@ -14,9 +14,9 @@ const AppRouter = () => (
         <AuthButton />
         <Route path="/login" exact component={LoginForm} />
         <Route path='/signup' exact component={SignUpForm} />
-        <PrivateRoute path='/' exact component={TaskView}></PrivateRoute>
         <PrivateRoute path='/task/:id' exact component={TaskDetails}></PrivateRoute>
         <PrivateRoute path='/profile' exact component={Profile}></PrivateRoute>
+        <PrivateRoute path='/' exact component={TaskView}></PrivateRoute>
       </div>
   </Router>
 );
