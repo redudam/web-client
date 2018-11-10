@@ -1,7 +1,7 @@
 import React from 'react';
 import productLogo from './logo.png';
 import { LogoutButton } from '../logout-button';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SideMenu from '../sidemenu';
 import './header.css';
 import AuthService from '../../AuthService';
@@ -25,13 +25,21 @@ export class Header extends React.Component {
               <hr />
                 <ul>
                     <li className="menuEntry">
-                        {this.props.inProfile ? <Link className="menuEntryText inThis" to='/profile'>Профиль</Link> :
-                          <Link className="menuEntryText" to='/profile'>Профиль</Link>}
+                        <NavLink className="menuEntryText"
+                           activeClassName='inThis' 
+                         to='/profile'>Профиль</NavLink>
                     </li>
                     <li className="menuEntry">
-                      {this.props.inTasks ? <Link className="menuEntryText inThis" to='/'>Задачи</Link> :
-                        <Link className="menuEntryText" to='/'>Задачи</Link>}
+                        <NavLink className="menuEntryText"
+                        activeClassName='inThis'
+                        exact
+                        to='/'>Задачи</NavLink>
                     </li>
+                    { this.Auth.isAdmin() && <li className="menuEntry">
+                        <NavLink className="menuEntryText"
+                        activeClassName='inThis'
+                        to='/create-task'>Создать задачу</NavLink>
+                    </li> }
                     <li className="menuEntry">
                         <LogoutButton />
                     </li>

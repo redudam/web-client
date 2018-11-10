@@ -14,7 +14,7 @@ class Profile extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header inProfile></Header>
+        <Header></Header>
           <div id="profileContainer">
             <img src = {userAvatar} alt="Пользователь" id="profileAvatar" />
           </div>

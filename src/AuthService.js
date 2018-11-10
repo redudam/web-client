@@ -43,6 +43,10 @@ export default class AuthService {
         return !!token;
     }
 
+    isAdmin() {
+        return this.isLoggedIn() && this.getUser().role === 'admin';
+    }
+
     isTokenExpired(token) {
         return (new Date(token.expiresIn) < new Date());
     }
