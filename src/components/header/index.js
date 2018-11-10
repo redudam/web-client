@@ -11,9 +11,9 @@ import SideMenu from '../sidemenu';
 
 export class Header extends React.Component {
     render() {
-        return <div id="navbar" style={{paddingLeft: '0 !important'}}>
+        return <div id="navbar">
         { fakeAuth.isAuthenticated && <SideMenu>
-          
+
         </SideMenu> }
           <center><img alt="productlogo" id="productLogo" src={productLogo} /></center>
         </div>;

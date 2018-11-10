@@ -1,6 +1,15 @@
 body {
 }
 
+@font-face {
+  font-family: 'oneWidthFont';
+  src: url(./font.ttf);
+}
+
+#emailInput,#passwordInput {
+  font-family: 'oneWidthFont';
+}
+
 Form#loginForm {
   margin: 20px;
 }
@@ -29,7 +38,6 @@ div#signUpContainer {
 }
 
 div#navbar {
-  padding-left: 20px;
   height: 64px;
   background-color: #F79000;
 }
