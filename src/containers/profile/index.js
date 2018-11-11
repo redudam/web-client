@@ -32,14 +32,10 @@ class Profile extends React.Component {
   render() {
     return (
       <React.Fragment>
-<<<<<<< HEAD
-        <Header inProfile></Header>
+        <Header />
           <div style={{margin: 20, marginBottom: 0}}>
             <h1 style={{display: 'inline-block'}}>Профиль</h1><div id="profileRole">Admin</div>
           </div>
-=======
-        <Header></Header>
->>>>>>> a295be8642a07e5993afc5a948b4be0c3de779d7
           <div id="profileContainer">
             <img src = {userAvatar} alt="Пользователь" id="profileAvatar" />
             <div id="profileName">Юрийkhjhhjgh Соловьев</div>

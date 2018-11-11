@@ -94,12 +94,8 @@ Tasks.defaultProps = {
 }
 
 const Task = props => <div {...props}>
-<<<<<<< HEAD
   <Badge className="badges" color="primary">Hello</Badge>
   <span className="taskName">{props.task.name}</span>
-=======
-  <span className="taskName">{props.task.title}</span>
->>>>>>> a295be8642a07e5993afc5a948b4be0c3de779d7
   <span className="orgName">{props.task.ownerId}</span>
   <img className="goToTask" alt="Перейти" src={goToTask} />
 </div>
@@ -135,12 +131,8 @@ class TaskView extends React.Component {
   render() {
     return (
       <div id="mainContainer">
-<<<<<<< HEAD
         <FiltersContainer></FiltersContainer>
-        <Header inTasks></Header>
-=======
-        <Header></Header>
->>>>>>> a295be8642a07e5993afc5a948b4be0c3de779d7
+        <Header />
         <div id="taskLabelContainer">
           <h1 id="viewLabel">Задачи</h1>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import productLogo from './logo.png';
 import { LogoutButton } from '../logout-button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import SideMenu from '../sidemenu';
 import './header.css';
 import AuthService from '../../AuthService';
