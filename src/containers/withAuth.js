@@ -13,7 +13,7 @@ export default function withAuth(AuthComponent) {
         }
 
         componentWillMount() {
-            console.log('with auth wii mount');
+            console.log('with auth will mount');
             if (!Auth.isLoggedIn()) {
                 console.log('redirecting to login');
                 this.props.history.replace('/login');

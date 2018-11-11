@@ -4,9 +4,31 @@ import AuthService from './AuthService';
 const baseURL = 'http://95.213.28.116:3000';
 
 export const takeTask = (id) => {
-    return axios.post(`${baseURL}/v1/tasks/${id}/take`).then((response) => {
-        return response.data;
-    });
+    const url = `${baseURL}/v1/tasks/${id}/take`;
+    const Auth = new AuthService();
+    const reqConfig = {
+        method: 'POST'
+    }
+    return Auth.fetchWithHeaders(url, reqConfig);
+}
+
+export const returnTask = (id) => {
+    const url = `${baseURL}/v1/tasks/${id}/release`;
+    const Auth = new AuthService();
+    const reqConfig = {
+        method: 'POST'
+    }
+    return Auth.fetchWithHeaders(url, reqConfig);
+}
+
+export const getUserTasks = () => {
+    const url = `${baseURL}/v1/users/profile`;
+    const Auth = new AuthService();
+    const reqConfig = {
+        method: 'GET'
+    }
+    return Auth.fetchWithHeaders(url, reqConfig)
+        .then( ({ tasks }) => tasks);
 }
 
 export const getTasks = () => {

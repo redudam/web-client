@@ -1,7 +1,12 @@
 import React from 'react';
 import { Button, Progress } from 'reactstrap';
 import './taskdetails.css';
-import { getTaskById, takeTask } from '../../api';
+import { 
+  getTaskById,
+  takeTask,
+  returnTask,
+  getUserTasks
+} from '../../api';
 import {Header} from '../../components/header';
 import tempPic from './template.png';
 import ownerLogo from './templogo.png';
@@ -18,19 +23,51 @@ class TaskDetails extends React.Component {
   constructor(props) {
     super(props);
     this.takeTaskFunc = this.takeTaskFunc.bind(this);
+    this.returnTask = this.returnTask.bind(this);
+    this.isAssignedToCurrentUser = this.isAssignedToCurrentUser.bind(this);
+    this.loadData = this.loadData.bind(this);
     this.state = {
-      task: {}
+      task: {},
+      userTasks: []
     };
   }
 
   componentDidMount() {
-    getTaskById(this.props.match.params.id).then(task => {
-      this.setState({task});
+    console.log('componentDidMount');
+    this.loadData();
+  }
+
+  loadData() {
+    Promise.all([
+      getTaskById(this.props.match.params.id),
+      getUserTasks()]
+    ).then(([task, userTasks]) => {
+      console.log('loading data');
+      this.setState({
+        task, userTasks
+      })
     });
   }
 
   takeTaskFunc() {
-    takeTask(this.props.match.params.id);
+    const id = this.state.task.id;
+    takeTask(id)
+      .then(() => {
+        this.loadData();
+      });
+  }
+
+  returnTask() {
+    returnTask(this.state.task.id).then(() => {
+     this.loadData();
+    });
+  }
+
+  isAssignedToCurrentUser(task) {
+    const taskIsOnCurrentUser = this.state.userTasks.find(userTask => userTask._id === task.id) >= 0;
+    console.log('User tasks', this.state.userTasks.map(task => task._id));
+    console.log('task is on Current user', taskIsOnCurrentUser);
+    return taskIsOnCurrentUser;
   }
 
   render() {
@@ -66,7 +103,10 @@ class TaskDetails extends React.Component {
           <div style={{marginTop: 5}} className="text-center">Откликнулись 5/10</div>
           <Progress value={50} />
           <div id="btnsContainer" style={{marginTop: 20, marginBottom: 20}}>
-            <Button onClick={this.takeTaskFunc} type="button" color="success" id="takeTask">Взять задачу</Button>
+            { this.state.task && this.state.task.status === 'available' &&
+            <Button onClick={this.takeTaskFunc} type="button" color="success" id="takeTask">Взять задачу</Button>}
+            { this.state.task && this.isAssignedToCurrentUser(this.state.task) &&
+            <Button onClick={this.returnTask} type="button" color="success" id="releaseTask">Вернуть задачу</Button>}
             <a href={'https://vk.com/share.php?url=http://http://95.213.28.116:5000/task/' + this.state.task.id + '&title=Задача на happytails #' + this.state.task.id}>
               <div id="shareBtnContainer">
                 <img alt="Поделиться" src={share} id="shareBtnSize" />

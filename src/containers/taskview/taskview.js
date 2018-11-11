@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { TabContent, Input, ButtonGroup, Button, Label, TabPane, Nav, NavItem, NavLink, Badge, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './taskview.css';
-import { getTasks } from '../../api';
+import { getTasks, getUserTasks } from '../../api';
 import goToTask from './arrow_right.png';
 import openArrow from './openArrow.png';
 import { Link } from 'react-router-dom';
@@ -128,7 +128,11 @@ class Tasks extends React.Component {
   render() {
     return (
       <div {...this.props}>
-        {this.props.tasks.filter((task) => task.priority != 'deleted').map(task => <Link key={'_key' + task.id} to={`/task/${task.id}`}><Task className="task" task={task} /></Link>)}
+        {this.props.tasks
+            .filter((task) => task.priority != 'deleted')
+            .map(task => <Link key={'_key' + (task.id || task._id) } to={`/task/${(task.id || task._id)}`}>
+              <Task className="task" task={task} />
+            </Link>)}
       </div>
     );
   }
@@ -162,13 +166,18 @@ class TaskView extends React.Component {
     this.state = {
       activeTab: '1',
       tasks: [],
+      userTasks: []
     };
   }
 
   componentDidMount() {
-    getTasks().then((tasks) => {
+    Promise.all([
+      getTasks(),
+      getUserTasks()
+    ])
+   .then(([tasks, userTasks]) => {
       this.setState({
-        tasks
+        tasks, userTasks
       });
     });
   }
@@ -184,9 +193,7 @@ class TaskView extends React.Component {
   render() {
     return (
       <div id="mainContainer">
-
         <FiltersContainer>
-
         </FiltersContainer>
         <Header />
         <div id="taskLabelContainer">
@@ -198,7 +205,7 @@ class TaskView extends React.Component {
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
             >
-              <span className="tabName" style={{color: '#FFC107'}}>мои</span><br /><Badge pill>{this.state.tasks.filter((task) => task.status === 'my' && task.priority != 'deleted').length}</Badge>
+              <span className="tabName" style={{color: '#FFC107'}}>мои</span><br /><Badge pill>{this.state.userTasks.filter(task => task.priority !== 'deleted').length}</Badge>
             </NavLink>
           </NavItem>
           <NavItem style={{width: '37.5%'}}>
@@ -220,7 +227,7 @@ class TaskView extends React.Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <Tasks tasks={this.state.tasks.filter((task) => task.status === 'my')} />
+            <Tasks tasks={this.state.userTasks} />
           </TabPane>
           <TabPane tabId="2">
             <Tasks tasks={this.state.tasks.filter((task) => task.status === 'available')}/>
