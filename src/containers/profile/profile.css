@@ -1,7 +1,66 @@
 #profileAvatar {
-  
+  width: calc(40% - 20px);
+  border-radius: 50%;
+}
+
+#profileName {
+  position: absolute;
+  top: 0px;
+  left: calc(40% - 10px);
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+#profileRole {
+  padding-left: 1px;
+  padding-right: 1px;
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: 5px;
 }
 
 #profileContainer {
   margin: 20px;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #CED4DA;
+  margin-bottom: 0px;
+}
+
+#howManyTasks {
+  padding-top: 5px;
+  margin: 20px;
+  margin-top: 0px;
+  text-align: center;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+
+
+#telephone {
+  position: absolute;
+  top: 72px;
+  left: calc(40% - 10px);
+
+}
+
+#amount {
+
+}
+
+#chPass {
+  margin: 20px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.cat {
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
 }

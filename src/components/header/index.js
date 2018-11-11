@@ -18,10 +18,12 @@ export class Header extends React.Component {
     render() {
         return <div id="navbar">
             {this.Auth.isLoggedIn() && <SideMenu>
+              <Link to="/profile">
               <div id="userInfo">
                 <img src={userAvatar} id="userAvatar" alt="Пользователь" />
-                <div id="userName">Олег</div>
+                <div id="userName" style={{color: 'black'}}>Олег</div>
               </div>
+              </Link>
               <hr />
                 <ul>
                     <li className="menuEntry">

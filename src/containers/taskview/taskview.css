@@ -2,6 +2,16 @@ div#taskLabelContainer {
   margin: 20px;
 }
 
+.badges {
+  position: absolute;
+  bottom: 14px;
+  right: 30px;
+}
+
+.tabName {
+  font-weight: bold;
+}
+
 #mainNavBar {
   padding-left: 10px;
   padding-right: 10px;
@@ -9,7 +19,7 @@ div#taskLabelContainer {
 
 .task {
   height: 48px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   position: relative;
   border: 1px solid #DEE2E6;
   border-radius: .25rem;
