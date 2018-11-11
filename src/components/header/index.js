@@ -1,7 +1,7 @@
 import React from 'react';
 import productLogo from './logo.png';
 import { LogoutButton } from '../logout-button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import SideMenu from '../sidemenu';
 import './header.css';
 import AuthService from '../../AuthService';
@@ -13,6 +13,10 @@ export class Header extends React.Component {
     constructor() {
         super();
         this.Auth = new AuthService();
+        this.state = {
+          user: this.Auth.getUser()
+        };
+
     }
 
     render() {
@@ -21,14 +25,14 @@ export class Header extends React.Component {
               <Link to="/profile">
               <div id="userInfo">
                 <img src={userAvatar} id="userAvatar" alt="Пользователь" />
-                <div id="userName" style={{color: 'black'}}>Олег</div>
+                <div id="userName" style={{color: 'black'}}>{this.state.user.email}</div>
               </div>
               </Link>
               <hr />
                 <ul>
                     <li className="menuEntry">
                         <NavLink className="menuEntryText"
-                           activeClassName='inThis' 
+                           activeClassName='inThis'
                          to='/profile'>Профиль</NavLink>
                     </li>
                     <li className="menuEntry">

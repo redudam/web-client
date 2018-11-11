@@ -2,6 +2,18 @@ div#taskLabelContainer {
   margin: 20px;
 }
 
+body {
+  padding-bottom: 25px;
+}
+
+#contentContainer {
+  position: absolute;
+  top: 45px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 65px);
+}
+
 .badges {
   position: absolute;
   bottom: 14px;

@@ -2,10 +2,16 @@ import axios from 'axios';
 
 const baseURL = 'http://95.213.28.116:3000';
 
+export const takeTask = (id) => {
+    return axios.post(`${baseURL}/v1/tasks/${id}/take`).then((response) => {
+        return response.data;
+    });
+}
+
 export const getTasks = () => {
     return axios.get(`${baseURL}/v1/tasks`).then((response) => {
         return response.data
-    }); 
+    });
 }
 
 export const getTaskById = (id) => {
@@ -27,7 +33,7 @@ export const getCurrentUser = () => {
 }
 
 export const login = () => {
-    
+
 }
 
 const makeAnonimousRequest = (endpoint, method = 'get', payload = {}) => {

@@ -8,16 +8,25 @@ import withAuth from '../withAuth';
 import userAvatar from '../../logo.png';
 import tel from './tel.png';
 
+import AuthService from '../../AuthService';
+
+//import
+
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.oldPassChange = this.oldPassChange.bind(this);
     this.newPassChange = this.newPassChange.bind(this);
+    this.Auth = new AuthService();
     this.state = {
       newPass: '',
-      oldPass: ''
+      oldPass: '',
+      user: this.Auth.getUser()
     };
+  }
+
+  componentDidMount() {
   }
 
 
@@ -32,17 +41,13 @@ class Profile extends React.Component {
   render() {
     return (
       <React.Fragment>
-<<<<<<< HEAD
         <Header inProfile></Header>
           <div style={{margin: 20, marginBottom: 0}}>
-            <h1 style={{display: 'inline-block'}}>Профиль</h1><div id="profileRole">Admin</div>
+            <h1 style={{display: 'inline-block'}}>Профиль</h1><div id="profileRole">{this.state.user.role}</div>
           </div>
-=======
-        <Header></Header>
->>>>>>> a295be8642a07e5993afc5a948b4be0c3de779d7
           <div id="profileContainer">
             <img src = {userAvatar} alt="Пользователь" id="profileAvatar" />
-            <div id="profileName">Юрийkhjhhjgh Соловьев</div>
+            <div id="profileName">{this.state.user.email}</div>
 
             <div id="telephone">
               <img src={tel} style={{width: 20, marginRight: 4}} alt="Позвонить" /><a id="tel" href="tel:+78005553535">+78005553535</a>
@@ -95,4 +100,6 @@ class Profile extends React.Component {
     );
   }
 }
+
+
 export default withAuth(Profile);

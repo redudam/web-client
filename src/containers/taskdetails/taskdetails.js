@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Progress } from 'reactstrap';
 import './taskdetails.css';
-import { getTaskById } from '../../api';
+import { getTaskById, takeTask } from '../../api';
 import {Header} from '../../components/header';
 import tempPic from './template.png';
 import ownerLogo from './templogo.png';
@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 class TaskDetails extends React.Component {
   constructor(props) {
     super(props);
-
+    this.takeTaskFunc = this.takeTaskFunc.bind(this);
     this.state = {
       task: {}
     };
@@ -27,6 +27,10 @@ class TaskDetails extends React.Component {
     getTaskById(this.props.match.params.id).then(task => {
       this.setState({task});
     });
+  }
+
+  takeTaskFunc() {
+    takeTask(this.props.match.params.id);
   }
 
   render() {
@@ -41,7 +45,7 @@ class TaskDetails extends React.Component {
         <div id="imgContainer">
           <img src={tempPic} alt="Задача" id="taskImage" />
           <div id="titleInfo">
-            <span id="taskName">{this.state.task.name}</span><br />
+            <span id="taskName">{this.state.task.title}</span><br />
             <div id="orgContainer">
               <img alt="Приют" id="ownerLogo" src={ownerLogo} />
               <span id="orgName">{this.state.task.ownerId}</span>
@@ -62,7 +66,7 @@ class TaskDetails extends React.Component {
           <div style={{marginTop: 5}} className="text-center">Откликнулись 5/10</div>
           <Progress value={50} />
           <div id="btnsContainer" style={{marginTop: 20, marginBottom: 20}}>
-            <Button type="button" color="success" id="takeTask">Взять задачу</Button>
+            <Button onClick={this.takeTaskFunc} type="button" color="success" id="takeTask">Взять задачу</Button>
             <a href={'https://vk.com/share.php?url=http://http://95.213.28.116:5000/task/' + this.state.task.id + '&title=Задача на happytails #' + this.state.task.id}>
               <div id="shareBtnContainer">
                 <img alt="Поделиться" src={share} id="shareBtnSize" />
@@ -70,8 +74,7 @@ class TaskDetails extends React.Component {
             </a>
           </div>
         </div>
-        <iframe title='map' style={{width: '100%', border: 'none', marginBottom: 20}} src="https://yandex.ru/map-widget/v1/-/CBFAZSr00D" height="250"></iframe>
-        <div id="footer2">redundantiam</div>
+        {/*map*/}
     </div>
     );
   }
