@@ -41,7 +41,7 @@ class Profile extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header inProfile></Header>
+        <Header />
           <div style={{margin: 20, marginBottom: 0}}>
             <h1 style={{display: 'inline-block'}}>Профиль</h1><div id="profileRole">{this.state.user.role}</div>
           </div>

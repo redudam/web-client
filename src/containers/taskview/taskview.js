@@ -140,6 +140,7 @@ Tasks.defaultProps = {
 //secondary primary success warning danger
 //low medium high hot extra
 const Task = props => <div {...props}>
+<<<<<<< HEAD
     <Badge className="badges" color={
         props.task.priority == 'low' ? "secondary" :
         props.task.priority == 'medium' ? "primary" :
@@ -149,6 +150,10 @@ const Task = props => <div {...props}>
 
 
   <span className="taskName">{props.task.title}</span>
+=======
+  <Badge className="badges" color="primary">Hello</Badge>
+  <span className="taskName">{props.task.name}</span>
+>>>>>>> 401d99a1d1b91555cfe7a5ff3fb26056e2f06f59
   <span className="orgName">{props.task.ownerId}</span>
   <img className="goToTask" alt="Перейти" src={goToTask} />
 </div>
@@ -188,7 +193,7 @@ class TaskView extends React.Component {
         <FiltersContainer>
 
         </FiltersContainer>
-        <Header inTasks></Header>
+        <Header />
         <div id="taskLabelContainer">
           <h1 id="viewLabel">Задачи</h1>
         </div>
