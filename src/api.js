@@ -1,4 +1,5 @@
 import axios from 'axios';
+import AuthService from './AuthService';
 
 const baseURL = 'http://95.213.28.116:3000';
 
@@ -18,6 +19,18 @@ export const getOrganizations = () => {
     return axios.get(`${baseURL}/v1/organizations`).then(response => {
         return response.data;
     });
+}
+
+export const inviteUserToOrganization = (email, organizationId) => {
+    const Auth = new AuthService();
+    const url = `${baseURL}/v1/invitations`;
+    const reqConfig = {
+        method: 'POST',
+        body: JSON.stringify({
+            email, organizationId
+        })
+    };
+    return Auth.fetchWithHeaders(url, reqConfig);
 }
 
 export const getCurrentUser = () => {
