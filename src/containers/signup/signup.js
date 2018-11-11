@@ -40,7 +40,6 @@ export default class SignUpForm extends React.Component {
   }
 
   onDismiss() {
-    console.log('onDismiss');
     this.setState({ registrationError: false });
   }
 
@@ -101,7 +100,11 @@ export default class SignUpForm extends React.Component {
   }
 
   registerUser() {
-    this.Auth.registerUser(this.state.email, this.state.passInputValue)
+    const inviteToken = this.props.match
+      &&  this.props.match.params
+      && this.props.match.params.inviteToken;
+
+    this.Auth.registerUser(this.state.email, this.state.passInputValue, inviteToken)
       .then(() => {
         this.props.history.push('/');
       })
@@ -127,8 +130,6 @@ export default class SignUpForm extends React.Component {
         <form id="signUpForm">
           <h1>Регистрация</h1>
           <FormGroup>
-
-
             <Input type="email"
              name="email"
              onChange={this.handleEmailChange}

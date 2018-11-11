@@ -13,6 +13,7 @@ const AppRouter = () => (
   <Router>
       <div>
         <Route path="/login" exact component={LoginForm} />
+        <Route path='/signup/:inviteToken' exact component={SignUpForm} />
         <Route path='/signup' exact component={SignUpForm} />
         <Route path='/task/:id' exact component={TaskDetails} />
         <Route path='/profile' exact component={Profile} />

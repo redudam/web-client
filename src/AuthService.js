@@ -23,16 +23,19 @@ export default class AuthService {
         });
     }
 
-    registerUser(email, password) {
+    registerUser(email, password, inviteToken = false) {
+        const body = {email, password};
+        if (inviteToken) {
+            body.inviteToken = inviteToken;
+        }
         return this.fetchWithHeaders(`${this.domain}/v1/auth/register`, {
             method: 'POST',
-            body: JSON.stringify({email, password})
+            body: JSON.stringify(body)
         }).then(res => {
             this.setToken(JSON.stringify(res.token));
             this.setUser(JSON.stringify(res.user));
             return Promise.resolve(res);
         }).catch(err => {
-            console.log('login failed');
             throw Error(err);
         });
     }

@@ -37,7 +37,7 @@ class TaskDetails extends React.Component {
             <img alt="back" src={back} />
           </div>
         </Link>
-        <Header></Header>
+        <Header />
         <div id="imgContainer">
           <img src={tempPic} alt="Задача" id="taskImage" />
           <div id="titleInfo">
