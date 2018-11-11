@@ -1,6 +1,8 @@
 import React from 'react';
 import withAuth from '../withAuth';
 import { getOrganizations } from '../../api';
+import { CollapsibleInput } from '../../components/collapsible-input';
+import { Header } from '../../components/header';
 
 class Organizations extends React.Component {
 
@@ -9,6 +11,7 @@ class Organizations extends React.Component {
         this.state = {
             organizations: []
         }
+        this.inviteUserToOrganization = this.inviteUserToOrganization.bind(this);
     }
 
     componentDidMount() {
@@ -19,15 +22,30 @@ class Organizations extends React.Component {
         });
     }
 
+    inviteUserToOrganization(email, orgId) {
+        console.log(email, orgId);
+    }
+
     render() {
         return (
             <div>
-                <h1>Организации</h1>
-                <ul>
-                    { 
-                        this.state.organizations.map(org => <li key={org.id}>{ org.title }</li>)
-                    }
-                </ul>
+                <Header />
+                <div style={{paddingRight: 20}}>
+                    <h2 style={{marginLeft: 15}}>Организации</h2>
+                    <ul style={{
+                        listStyle:'none',
+                        marginLeft: 15,
+                        paddingLeft: 0
+                        }}>
+                        { 
+                            this.state.organizations.map(org => <CollapsibleInput
+                                org={org}
+                                key={org.id}
+                                onInviteClick={this.inviteUserToOrganization}
+                            ></CollapsibleInput> )
+                        }
+                    </ul>
+                </div>
             </div>
         );
     }
